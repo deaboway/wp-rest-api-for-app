@@ -1,7 +1,7 @@
 <?php
 //获取用户的微信 openid
 add_action( 'rest_api_init', function () {
-  register_rest_route( 'watch-life-net/v1', 'weixin/getopenid', array(
+  register_rest_route( 'cityofcode/v1', 'weixin/getopenid', array(
     'methods' => 'POST',
     'callback' => 'getOpenid'
   ) );

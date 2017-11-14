@@ -1,6 +1,6 @@
 <?php
 add_action( 'rest_api_init', function () {
-  register_rest_route( 'watch-life-net/v1', 'post/addpageview/(?P<id>\d+)', array(
+  register_rest_route( 'cityofcode/v1', 'post/addpageview/(?P<id>\d+)', array(
     'methods' => 'GET',
     'callback' => 'updatepageviews'
   ) );

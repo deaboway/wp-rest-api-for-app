@@ -4,7 +4,7 @@
 //ini_set('display_errors', '1'); 
 
 add_action( 'rest_api_init', function () {
-  register_rest_route( 'watch-life-net/v1', 'comment/add', array(
+  register_rest_route( 'cityofcode/v1', 'comment/add', array(
     'methods' => 'POST',
     'callback' => 'addcomment'
   ) );
@@ -123,7 +123,7 @@ function add_comment_json($post,$author_name,$author_email,$author_url,$content,
 
 
 add_action( 'rest_api_init', function () {
-  register_rest_route( 'watch-life-net/v1', 'comment/get', array(
+  register_rest_route( 'cityofcode/v1', 'comment/get', array(
     'methods' => 'GET',
     'callback' => 'getcomment'
   ) );

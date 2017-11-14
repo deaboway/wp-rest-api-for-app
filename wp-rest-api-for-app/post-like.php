@@ -1,7 +1,7 @@
 <?php
 //点赞
 add_action( 'rest_api_init', function () {
-  register_rest_route( 'watch-life-net/v1', 'post/like', array(
+  register_rest_route( 'cityofcode/v1', 'post/like', array(
     'methods' => 'POST',
     'callback' => 'postLike'
   ) );
@@ -88,7 +88,7 @@ function post_like_json($openid,$postid) {
 
 
 add_action( 'rest_api_init', function () {
-  register_rest_route( 'watch-life-net/v1', 'post/islike', array(
+  register_rest_route( 'cityofcode/v1', 'post/islike', array(
     'methods' => 'POST',
     'callback' => 'getIsLike'
   ) );
@@ -165,7 +165,7 @@ function post_islike_json($openid,$postid) {
 
 
 add_action( 'rest_api_init', function () {
-  register_rest_route( 'watch-life-net/v1', 'post/mylike', array(
+  register_rest_route( 'cityofcode/v1', 'post/mylike', array(
     'methods' => 'GET',
     'callback' => 'getmyLike'
   ) );

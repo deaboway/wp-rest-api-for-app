@@ -1,7 +1,7 @@
 <?php
 
 add_action( 'rest_api_init', function () {
-  register_rest_route( 'watch-life-net/v1', 'weixin/sendmessage', array(
+  register_rest_route( 'cityofcode/v1', 'weixin/sendmessage', array(
     'methods' => 'POST',
     'callback' => 'sendmessage'
   ) );

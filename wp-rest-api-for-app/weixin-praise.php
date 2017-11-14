@@ -4,7 +4,7 @@
 //ini_set('display_errors', '1'); 
 
 add_action( 'rest_api_init', function () {
-  register_rest_route( 'watch-life-net/v1', 'post/praise', array(
+  register_rest_route( 'cityofcode/v1', 'post/praise', array(
     'methods' => 'POST',
     'callback' => 'postPraise'
   ) );
@@ -79,7 +79,7 @@ function post_praise_json($openid,$postid,$orderid,$money){
 
 
 add_action( 'rest_api_init', function () {
-  register_rest_route( 'watch-life-net/v1', 'post/mypraise', array(
+  register_rest_route( 'cityofcode/v1', 'post/mypraise', array(
     'methods' => 'GET',
     'callback' => 'getmypraise'
   ) );
@@ -143,7 +143,7 @@ function post_mypraise_json($openid) {
 
 
 add_action( 'rest_api_init', function () {
-  register_rest_route( 'watch-life-net/v1', 'post/allpraise', array(
+  register_rest_route( 'cityofcode/v1', 'post/allpraise', array(
     'methods' => 'GET',
     'callback' => 'getallpraise'
   ) );

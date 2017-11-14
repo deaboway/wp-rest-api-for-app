@@ -2,7 +2,7 @@
 
 //获取本站一年内评论最多的top10文章
 add_action( 'rest_api_init', function () {
-  register_rest_route( 'watch-life-net/v1', '/post/hotpostthisyear', array(
+  register_rest_route( 'cityofcode/v1', '/post/hotpostthisyear', array(
     'methods' => 'GET',
     'callback' => 'getTopHotPostsThisYear'    
   ) );
@@ -64,7 +64,7 @@ function get_mostcommented_thisyear_json($limit = 10) {
 }
 
 add_action( 'rest_api_init', function () {
-  register_rest_route( 'watch-life-net/v1', '/post/hotpost', array(
+  register_rest_route( 'cityofcode/v1', '/post/hotpost', array(
     'methods' => 'GET',
     'callback' => 'getTopHotPosts'
   ) );
@@ -129,7 +129,7 @@ return $posts;
 
 //获取本站一年内点赞最多的top10文章
 add_action( 'rest_api_init', function () {
-  register_rest_route( 'watch-life-net/v1', '/post/likethisyear', array(
+  register_rest_route( 'cityofcode/v1', '/post/likethisyear', array(
     'methods' => 'GET',
     'callback' => 'getTopLikePostsThisYear'    
   ) );
@@ -194,7 +194,7 @@ function get_mostlike_thisyear_json($limit = 10) {
 
 //获取本站一年内浏览最多的top10文章
 add_action( 'rest_api_init', function () {
-  register_rest_route( 'watch-life-net/v1', '/post/pageviewsthisyear', array(
+  register_rest_route( 'cityofcode/v1', '/post/pageviewsthisyear', array(
     'methods' => 'GET',
     'callback' => 'getTopPageviewsPostsThisYear'    
   ) );
@@ -261,14 +261,15 @@ function get_pageviews_thisyear_json($limit = 10) {
 
 //获取本站一年内赞赏最多的top10文章
 add_action( 'rest_api_init', function () {
-  register_rest_route( 'watch-life-net/v1', '/post/praisethisyear', array(
+  register_rest_route( 'cityofcode/v1', '/post/praisethisyear', array(
     'methods' => 'GET',
     'callback' => 'getTopPraisePostsThisYear'    
   ) );
 } );
 
 function getTopPraisePostsThisYear( $data ) {
-$data=get_praise_thisyear_json(10); 
+// $data=get_praise_thisyear_json(10); 
+$data=get_mostcommented_thisyear_json(10); 
 if ( empty( $data ) ) {
     return new WP_Error( 'noposts', 'noposts', array( 'status' => 404 ) );
   } 

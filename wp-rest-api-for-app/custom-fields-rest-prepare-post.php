@@ -54,7 +54,7 @@ function custom_fields_rest_prepare_post( $data, $post, $request) {
 
 
 add_action( 'rest_api_init', function () {
-  register_rest_route( 'watch-life-net/v1', 'post/swipe', array(
+  register_rest_route( 'cityofcode/v1', 'post/swipe', array(
     'methods' => 'GET',
     'callback' => 'getPostSwipe'
   ) );
