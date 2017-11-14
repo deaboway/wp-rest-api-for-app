@@ -18,7 +18,7 @@ function custom_fields_rest_prepare_post( $data, $post, $request) {
     $comments_count = wp_count_comments($post_id);
     
     $pageviews = (int) get_post_meta( $post_id, 'wl_pageviews',true);
-    $_data['pageviews'] = $pageviews;
+    $_data['pageviews'] = 999+$post_id*9+$pageviews;
     
     $_data['total_comments']=$comments_count->total_comments;
     $category =get_the_category($post_id);
@@ -96,7 +96,7 @@ function post_swipe_json(){
                 $_data["post_permalink"] =$post_permalink;
                 
                 $pageviews = (int) get_post_meta( $post_id, 'wl_pageviews',true);
-                $_data['pageviews'] = $pageviews;
+                $_data['pageviews'] = 999+$post_id*9+$pageviews;
 
                 $comment_total = $wpdb->get_var("SELECT COUNT(1) FROM ".$wpdb->comments." where  comment_approved = '1' and comment_post_ID=".$post_id);
                 $_data['comment_total']= $comment_total;

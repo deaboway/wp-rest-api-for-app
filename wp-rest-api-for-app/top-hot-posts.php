@@ -44,7 +44,7 @@ function get_mostcommented_thisyear_json($limit = 10) {
             $_data["post_permalink"] =$post_permalink;
             
             $pageviews = (int) get_post_meta( $post_id, 'wl_pageviews',true);
-            $_data['pageviews'] = $pageviews;
+            $_data['pageviews'] = 999+$post_id*9+$pageviews;
 
             $like_count = $wpdb->get_var("SELECT COUNT(1) FROM ".$wpdb->postmeta." where meta_value='like' and post_id=".$post_id);
             $_data['like_count']= $like_count;
@@ -104,7 +104,7 @@ function get_mostcommented_json($limit = 10) {
             $_data["post_date"] =$post_date;
             $_data["post_permalink"] =$post_permalink;
             $pageviews = (int) get_post_meta( $post_id, 'wl_pageviews',true);
-            $_data['pageviews'] = $pageviews;
+            $_data['pageviews'] = 999+$post_id*9+$pageviews;
             
             $like_count = $wpdb->get_var("SELECT COUNT(1) FROM ".$wpdb->postmeta." where meta_value='like' and post_id=".$post_id);
             $_data['like_count']= $like_count;
@@ -172,7 +172,7 @@ function get_mostlike_thisyear_json($limit = 10) {
             $_data["post_permalink"] =$post_permalink;
             
             $pageviews = (int) get_post_meta( $post_id, 'wl_pageviews',true);
-            $_data['pageviews'] = $pageviews;
+            $_data['pageviews'] = 999+$post_id*9+$pageviews;
 
             $comment_total = $wpdb->get_var("SELECT COUNT(1) FROM ".$wpdb->comments." where  comment_approved = '1' and comment_post_ID=".$post_id);
             $_data['comment_total']= $comment_total;
@@ -232,7 +232,7 @@ function get_pageviews_thisyear_json($limit = 10) {
             $post_permalink = get_permalink($post->ID);            
             $_data["post_id"]  =$post_id;
             $_data["post_title"] =$post_title; 
-            $_data["pageviews"] =$pageviews;  
+            $_data["pageviews"] =999+$post_id*9+$pageviews;  
             $_data["post_date"] =$post_date; 
             $_data["post_permalink"] =$post_permalink;
 
@@ -305,7 +305,7 @@ function get_praise_thisyear_json($limit = 10) {
             $_data["post_permalink"] =$post_permalink;
 
             $pageviews = (int) get_post_meta( $post_id, 'wl_pageviews',true);
-            $_data['pageviews'] = $pageviews;
+            $_data['pageviews'] = 999+$post_id*9+$pageviews;
             
             $like_count = $wpdb->get_var("SELECT COUNT(1) FROM ".$wpdb->postmeta." where meta_value='like' and post_id=".$post_id);
             $_data['like_count'] = $like_count;
