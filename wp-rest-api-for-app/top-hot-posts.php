@@ -220,7 +220,7 @@ function get_pageviews_thisyear_json($limit = 10) {
     $today = date("Y-m-d H:i:s"); //获取今天日期时间   
    // $fristday = date( "Y-m-d H:i:s",  strtotime(date("Y",time())."-1"."-1"));  //本年第一天;
     $fristday= date("Y-m-d H:i:s", strtotime("-1 year"));  
-    $sql="SELECT  ".$wpdb->posts.".ID as ID, post_title, post_name,post_content,post_date, CONVERT(".$wpdb->postmeta.".meta_value,SIGNED) AS 'pageviews_total' FROM ".$wpdb->posts." LEFT JOIN ".$wpdb->postmeta." ON ".$wpdb->posts.".ID = ".$wpdb->postmeta.".post_id WHERE ".$wpdb->postmeta.".meta_key ='wl_pageviews' AND post_date BETWEEN '".$fristday."' AND '".$today."' AND post_status = 'publish' AND post_password = '' ORDER  BY pageviews_total DESC LIMIT ". $limit;
+    $sql="SELECT  ".$wpdb->posts.".ID as ID, post_title, post_name,post_content,post_date, (CONVERT(".$wpdb->postmeta.".meta_value,SIGNED)+999+ID*9) AS 'pageviews_total' FROM ".$wpdb->posts." LEFT JOIN ".$wpdb->postmeta." ON ".$wpdb->posts.".ID = ".$wpdb->postmeta.".post_id WHERE ".$wpdb->postmeta.".meta_key ='wl_pageviews' AND post_date BETWEEN '".$fristday."' AND '".$today."' AND post_status = 'publish' AND post_password = '' ORDER  BY pageviews_total DESC LIMIT ". $limit;
     $mostlikes = $wpdb->get_results($sql);
     $posts =array();
     foreach ($mostlikes as $post) {
@@ -232,7 +232,7 @@ function get_pageviews_thisyear_json($limit = 10) {
             $post_permalink = get_permalink($post->ID);            
             $_data["post_id"]  =$post_id;
             $_data["post_title"] =$post_title; 
-            $_data["pageviews"] =999+$post_id*9+$pageviews;  
+            $_data["pageviews"] =$pageviews;  
             $_data["post_date"] =$post_date; 
             $_data["post_permalink"] =$post_permalink;
 
